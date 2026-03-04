@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header style="height: auto; padding: 20px;">
+    <h1>Admin Dashboard</h1>
+    <a href="/logout"><button>Logout</button></a>
+</header>
+
+<section>
+    <h2>Contact Messages</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="project-card">
+                <h3>{{ message[1] }}</h3>
+                <p><strong>Email:</strong> {{ message[2] }}</p>
+                <p>{{ message[3] }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No messages yet.</p>
+    {% endif %}
+
+</section>
+
+</body>
+</html>
